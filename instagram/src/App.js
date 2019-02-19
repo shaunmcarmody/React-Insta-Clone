@@ -19,26 +19,12 @@ class App extends React.Component {
         <SearchBar />
         <main>
           {
-            this.state.articles.map(article => <PostContainer article={article} />)
+            this.state.articles.map((article, i) => <PostContainer article={article} key={i}/>)
           }
         </main>
       </>
     );
   }
 }
-
-App.propTypes = {
-  article: PropTypes.arrayOf(PropTypes.shape({
-    username: PropTypes.string,
-    thumbnailUrl: PropTypes.string,
-    imageUrl: PropTypes.string,
-    likes: PropTypes.number,
-    timestamp: PropTypes.timestamp,
-    comments: PropTypes.arrayOf(PropTypes.shape({
-      username: PropTypes.string,
-      text: PropTypes.string,
-    })),
-  }))
-};
 
 export default App;

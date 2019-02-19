@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './CommentSection.scss';
 
 const CommentSection = (props) => {
@@ -6,14 +7,18 @@ const CommentSection = (props) => {
         <section>
             <ul>
                 {
-                    props.comments.map(comment => (
-                        <li><h6>{comment.username}</h6> {comment.text}</li>
+                    props.comments.map((comment, i) => (
+                        <li key={i}><h6>{comment.username}</h6> {comment.text}</li>
                     ))
                 }
             </ul>
             <input type="text" placeholder="Add a comment..." />
         </section>
     )
+}
+
+CommentSection.propTypes = {
+    comments: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
 }
 
 export default CommentSection;
