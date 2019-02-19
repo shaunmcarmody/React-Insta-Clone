@@ -7,27 +7,23 @@ import './PostContainer.scss';
 const PostContainer = (props) => {
     return (
         <article>
-            {
-                <>
-                    <header>
-                        <img src={props.article.thumbnailUrl} alt={props.article.username} />
-                        <h1>{props.article.username}</h1>
-                    </header>
-                    <img src={props.article.imageUrl} alt={props.article.username} />
-                    <div>
-                        <icon>
+            <header>
+                <img src={props.article.thumbnailUrl} alt={props.article.username} />
+                <h1>{props.article.username}</h1>
+            </header>
+            <img src={props.article.imageUrl} alt={props.article.username} />
+            <div>
+                <icon>
 
-                        </icon>
-                        <icon>
+                </icon>
+                <icon>
 
-                        </icon>
-                    </div>
-                    <h3>{props.article.likes} likes</h3>
-                    <CommentSection comments={props.article.comments} />
-                    <time>{props.article.timestamp}</time>
-                </>
-            }
-        </article>
+                </icon>
+            </div>
+            <h3>{props.article.likes} likes</h3>
+            <CommentSection comments={props.article.comments} />
+            <time>{props.article.timestamp}</time>
+        </article>   
     )
 }
 

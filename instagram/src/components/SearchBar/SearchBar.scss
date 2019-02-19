@@ -1,12 +1,77 @@
 header {
     background-color: #ffffff;
     border-bottom: 1px solid rgba(0,0,0,.0975);
+    align-items: center;
+    display: flex;
     height: 77px;
 
     nav {
+        align-items: flex-end;
         display: flex;
         justify-content: space-between;
         margin: auto;
         max-width: 1010px;
+        width: 100%;
+
+        .branding {
+            display: flex;
+
+            .logo {
+                background: url(../../assets/logo.png) center center no-repeat;
+                background-size: 24px 24px;
+                line-height: 24px;
+                margin-right: 10px;
+                width: 24px;
+            }
+
+            .divide {
+                border-left: 1px solid black;
+            }
+
+            .brand {
+                background: url(../../assets/brand.png) center center no-repeat;
+                background-size: 103px auto;
+                height: 40px;
+                margin-left: 10px;
+                width: 103px;
+            }
+        }
+
+        input {
+            border: solid 1px #dbdbdb;
+            height: 28px;
+            min-width: 125px;
+            padding: 7px;
+            text-align: center;
+            width: 215px;
+        }
+
+        .nav {
+            display: flex;
+            height: 28px;
+
+            .compass {
+                background: url(../../assets/compass.svg) center center no-repeat;
+                background-size: 20px 20px;
+                line-height: 24px;
+                margin-right: 20px;
+                width: 20px;
+            }
+
+            .heart {
+                background: url(../../assets/heart.svg) center center no-repeat;
+                background-size: 20px 20px;
+                line-height: 24px;
+                margin-right: 20px;
+                width: 20px;
+            }
+
+            .avatar {
+                background: url(../../assets/avatar.svg) center center no-repeat;
+                background-size: 20px 20px;
+                line-height: 24px;
+                width: 20px;
+            }
+        }
     }
 }
