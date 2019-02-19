@@ -12,17 +12,12 @@ const PostContainer = (props) => {
                 <h1>{props.article.username}</h1>
             </header>
             <img src={props.article.imageUrl} alt={props.article.username} />
-            <div>
-                <icon>
-
-                </icon>
-                <icon>
-
-                </icon>
+            <div className="icons">
+                <div className="heart" />
+                <div className="comment" />
             </div>
             <h3>{props.article.likes} likes</h3>
-            <CommentSection comments={props.article.comments} />
-            <time>{props.article.timestamp}</time>
+            <CommentSection comments={props.article.comments} timestamp={props.article.timestamp} />
         </article>   
     )
 }

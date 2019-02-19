@@ -12,13 +12,15 @@ const CommentSection = (props) => {
                     ))
                 }
             </ul>
+            <time className="time">{props.timestamp}</time>
             <input type="text" placeholder="Add a comment..." />
         </section>
     )
 }
 
 CommentSection.propTypes = {
-    comments: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string))
+    comments: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)),
+    timestamp: PropTypes.string
 }
 
 export default CommentSection;
