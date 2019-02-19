@@ -11,6 +11,7 @@ class PostContainer extends React.Component {
             username: props.article.username,
             thumbnailUrl: props.article.thumbnailUrl,
             imageUrl: props.article.imageUrl,
+            like: false,
             likes: props.article.likes,
             timestamp: props.article.timestamp,
             comments: props.article.comments
@@ -18,8 +19,12 @@ class PostContainer extends React.Component {
         console.log(props)
     }
 
-    addLike = e => {
-        console.log('works')
+    addLike = () => {
+        let likes = this.state.like ? this.state.likes - 1 : this.state.likes + 1;
+        this.setState({
+            like: !this.state.like,
+            likes: likes
+        });
     }
 
     render(props) {
@@ -31,7 +36,7 @@ class PostContainer extends React.Component {
                 </header>
                 <img src={this.state.imageUrl} alt={this.state.username} />
                 <div className="icons">
-                    <div className="heart" onClick={this.state.addLike}/>
+                    <div className="heart" onClick={this.addLike}/>
                     <div className="comment" />
                 </div>
                 <h3>{this.state.likes} likes</h3>

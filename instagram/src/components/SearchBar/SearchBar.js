@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './SearchBar.scss';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
     return (
         <header>
             <nav>
@@ -10,7 +11,7 @@ const SearchBar = () => {
                     <div className="divide" />
                     <div className="brand" />
                 </div>
-                <input type="text" placeholder="Search" />
+                <input type="text" placeholder="Search" onChange={props.handleChange} value={props.search} />
                 <div className="nav">
                     <div className="compass" />
                     <div className="heart" />
@@ -19,6 +20,11 @@ const SearchBar = () => {
             </nav>
         </header>
     )
+}
+
+SearchBar.propTypes = {
+    handleChange: PropTypes.func,
+    search: PropTypes.string
 }
 
 export default SearchBar;

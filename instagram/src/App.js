@@ -11,7 +11,8 @@ class App extends React.Component {
     console.log('Constructor running');
     super();
     this.state = {
-      articles: []
+      articles: [],
+      search: ''
     }
   }
 
@@ -42,12 +43,19 @@ class App extends React.Component {
     // console.log('CDU prevProps', prevProps);
   }
 
+  handleChange = e => {
+    this.setState({
+      articles: dummyData.filter(article => article.username.startsWith(e.target.value)),
+      search: e.target.value
+    })
+  }
+
   render() {
     // render all the things! this function can run many times in a component's lifespan
     console.log('rendering App.js');
     return (
       <>
-        <SearchBar />
+        <SearchBar handleChange={this.handleChange} search={this.state.search} />
         <main>
           {
             this.state.articles.map((article, i) => <PostContainer article={article} key={i}/>)
