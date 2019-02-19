@@ -1,25 +1,44 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
-import moment from 'moment';
+// import moment from 'moment';
 import './PostContainer.scss';
 
-const PostContainer = (props) => {
-    return (
-        <article>
-            <header>
-                <img src={props.article.thumbnailUrl} alt={props.article.username} />
-                <h1>{props.article.username}</h1>
-            </header>
-            <img src={props.article.imageUrl} alt={props.article.username} />
-            <div className="icons">
-                <div className="heart" />
-                <div className="comment" />
-            </div>
-            <h3>{props.article.likes} likes</h3>
-            <CommentSection comments={props.article.comments} timestamp={props.article.timestamp} />
-        </article>   
-    )
+class PostContainer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: props.article.username,
+            thumbnailUrl: props.article.thumbnailUrl,
+            imageUrl: props.article.imageUrl,
+            likes: props.article.likes,
+            timestamp: props.article.timestamp,
+            comments: props.article.comments
+        }
+        console.log(props)
+    }
+
+    addLike = e => {
+        console.log('works')
+    }
+
+    render(props) {
+        return (
+            <article>
+                <header>
+                    <img src={this.state.thumbnailUrl} alt={this.state.username} />
+                    <h1>{this.state.username}</h1>
+                </header>
+                <img src={this.state.imageUrl} alt={this.state.username} />
+                <div className="icons">
+                    <div className="heart" onClick={this.state.addLike}/>
+                    <div className="comment" />
+                </div>
+                <h3>{this.state.likes} likes</h3>
+                <CommentSection comments={this.state.comments} timestamp={this.state.timestamp} />
+            </article>   
+        )
+    }
 }
 
 PostContainer.propTypes = {
