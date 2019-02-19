@@ -21,9 +21,9 @@ const PostContainer = (props) => {
 
                         </icon>
                     </div>
-                    <h3>{props.article.likes}</h3>
+                    <h3>{props.article.likes} likes</h3>
                     <CommentSection comments={props.article.comments} />
-                    <h6>{props.article.timestamp}</h6>
+                    <time>{props.article.timestamp}</time>
                 </>
             }
         </article>

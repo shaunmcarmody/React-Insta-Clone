@@ -7,10 +7,11 @@ const CommentSection = (props) => {
             <ul>
                 {
                     props.comments.map(comment => (
-                        <li><span>{comment.username}</span> {comment.text}</li>
+                        <li><h6>{comment.username}</h6> {comment.text}</li>
                     ))
                 }
             </ul>
+            <input type="text" placeholder="Add a comment..." />
         </section>
     )
 }

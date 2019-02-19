@@ -1,3 +1,11 @@
 header {
-    border: 1px solid black;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+    height: 77px;
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+        max-width: 1010px;
+    }
 }
