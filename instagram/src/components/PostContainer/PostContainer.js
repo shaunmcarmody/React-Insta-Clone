@@ -26,7 +26,7 @@ class PostContainer extends React.Component {
         });
     }
 
-    render(props) {
+    render() {
         return (
             <article>
                 <header>
