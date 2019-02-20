@@ -17,7 +17,7 @@ class CommentSection extends React.Component{
         e.preventDefault();
         this.setState(state => {
             return {
-                comments: [...state.comments, { username: 'lambdaschool', text: state.comment }],
+                comments: [...state.comments, { username: localStorage.getItem('username'), text: state.comment }],
                 comment: '',
             }
         })
