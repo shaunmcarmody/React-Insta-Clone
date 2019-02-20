@@ -13,7 +13,7 @@ class CommentSection extends React.Component{
         }
     }
 
-    addNewComment = (e, i) => {
+    addNewComment = e => {
         e.preventDefault();
         this.setState(state => {
             return {
@@ -39,7 +39,7 @@ class CommentSection extends React.Component{
                 </ul>
                 <time className="time">{this.state.timestamp}</time>
                 <form onSubmit={this.addNewComment}>
-                    <input type="text" placeholder="Add a comment..." onChange={this.handleChange} value={this.state.comment} />
+                    <input className="comments-input" type="text" placeholder="Add a comment..." onChange={this.handleChange} value={this.state.comment} />
                 </form>
             </section>
         )
