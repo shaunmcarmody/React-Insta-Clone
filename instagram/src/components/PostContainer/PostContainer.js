@@ -18,7 +18,7 @@ class PostContainer extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         if (nextProps.article.username !== this.props.username) {
             this.setState({
                 username: nextProps.article.username,
