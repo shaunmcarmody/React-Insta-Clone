@@ -18,12 +18,27 @@ class PostContainer extends React.Component {
         }
     }
 
+    componentWillReceiveProps(nextProps){
+        if (nextProps.article.username !== this.props.username) {
+            this.setState({
+                username: nextProps.article.username,
+                thumbnailUrl: nextProps.article.thumbnailUrl,
+                imageUrl: nextProps.article.imageUrl,
+                like: false,
+                likes: nextProps.article.likes,
+                timestamp: nextProps.article.timestamp,
+                comments: nextProps.article.comments
+            })
+        }
+    } 
+
     addLike = () => {
-        let likes = this.state.like ? this.state.likes - 1 : this.state.likes + 1;
-        this.setState({
-            like: !this.state.like,
-            likes: likes
-        });
+        this.setState((state) => {
+          return {
+            like: !state.like,
+            likes: state.like ? state.likes - 1 : state.likes + 1,
+          }
+        })
     }
 
     render() {

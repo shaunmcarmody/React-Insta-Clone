@@ -15,10 +15,12 @@ class CommentSection extends React.Component{
 
     addNewComment = (e, i) => {
         e.preventDefault();
-        this.setState({
-            comments: [...this.state.comments, { username: 'lambdaschool', text: this.state.comment }],
-            comment: ''
-        });
+        this.setState(state => {
+            return {
+                comments: [...state.comments, { username: 'lambdaschool', text: state.comment }],
+                comment: '',
+            }
+        })
     }
 
     handleChange = e => {
