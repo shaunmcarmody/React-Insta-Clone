@@ -16,7 +16,6 @@ class PostContainer extends React.Component {
             timestamp: props.article.timestamp,
             comments: props.article.comments
         }
-        console.log(props)
     }
 
     addLike = () => {

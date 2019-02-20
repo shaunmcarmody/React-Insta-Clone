@@ -8,7 +8,7 @@ import dummyData from './data/dummy-data.js';
 class App extends React.Component {
   constructor() {
     // initialize data / bind function (if you're not using arrow functions) this runs one time only!
-    console.log('Constructor running');
+    // console.log('Constructor running');
     super();
     this.state = {
       articles: [],
@@ -19,28 +19,21 @@ class App extends React.Component {
   componentDidMount() {
     // after the initial render, CDM runs one time only
     // perform initial data fetches here - update state with the fetched data
-    console.log('CDM running');
+    // console.log('CDM running');
     this.setState({ articles: dummyData });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log("SCU is running, let's compare this.state and nextState");
-    // Logging this.state returns the current state
-    console.log('SCU currentState', this.state);
-    // Loging nextState returns the next state
+    // SCU is running, let's compare this.state and nextState
+    console.log('SCU currentState:', this.state);
     console.log('SCU nextState', nextState);
-    // console.log('SCU nextProps', nextProps);
-    if (this.state === nextState) return false;
     return true;
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("CDU is running, let's compare this.state and prevState");
-    // Logging this.state returns the current state
-    console.log('CDU currentState', this.state);
-    // Loging prevState returns the pevious state
+    // CDU is running, let's compare this.state and prevState
+    console.log('CDU currentState:', this.state);
     console.log('CDU prevState', prevState);
-    // console.log('CDU prevProps', prevProps);
   }
 
   handleChange = e => {
@@ -52,7 +45,7 @@ class App extends React.Component {
 
   render() {
     // render all the things! this function can run many times in a component's lifespan
-    console.log('rendering App.js');
+    // console.log('rendering App.js');
     return (
       <>
         <SearchBar handleChange={this.handleChange} search={this.state.search} />
