@@ -38,7 +38,7 @@ class App extends React.Component {
 
   handleChange = e => {
     this.setState({
-      articles: dummyData.filter(article => article.username.startsWith(e.target.value)),
+      articles: dummyData.filter(data => data.username.startsWith(e.target.value)),
       search: e.target.value
     })
   }
