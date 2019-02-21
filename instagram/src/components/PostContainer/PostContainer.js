@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import comment from '../../assets/heart.svg';
 import heart from '../../assets/comment.svg';
 import styled, { css } from 'styled-components';
+import Username from '../styles/reusables.js';
 
 const PostArticle = styled.article`
     background-color: #ffffff;
@@ -21,15 +22,6 @@ const PostHeaderImg = styled.img`
     border-radius: 50%;
     height: 40px;
     width: 40px;
-`;
-
-const PostTitle = styled.h1`
-    color: #262626;
-    font-size: 1.4rem;
-    font-weight: bold;
-    line-height: 40px;
-    margin-left: 12px;
-    vertical-align: center;
 `;
 
 const PostImg = styled.img`
@@ -111,7 +103,7 @@ class PostContainer extends React.Component {
             <PostArticle>
                 <PostHeader>
                     <PostHeaderImg src={this.state.thumbnailUrl} alt={this.state.username} />
-                    <PostTitle>{this.state.username}</PostTitle>
+                    <Username title={true} >{this.state.username}</Username>
                 </PostHeader>
                 <PostImg src={this.state.imageUrl} alt={this.state.username} />
                 <PostIcons container={true} >
