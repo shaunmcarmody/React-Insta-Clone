@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Username = styled.h1`
-    ${props => props.title &&
+    ${props => props.postTitle &&
         css`
             color: #262626;
             font-size: 1.4rem;

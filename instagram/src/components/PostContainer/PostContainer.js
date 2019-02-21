@@ -103,7 +103,7 @@ class PostContainer extends React.Component {
             <PostArticle>
                 <PostHeader>
                     <PostHeaderImg src={this.state.thumbnailUrl} alt={this.state.username} />
-                    <Username title={true} >{this.state.username}</Username>
+                    <Username postTitle={true} >{this.state.username}</Username>
                 </PostHeader>
                 <PostImg src={this.state.imageUrl} alt={this.state.username} />
                 <PostIcons container={true} >
