@@ -103,9 +103,6 @@ const SearchBar = props => {
                     value={props.search}
                 />
                 <SearchDiv flex={true}>
-                    {/* <div className="compass" />
-                    <div className="heart" />
-                    <div className="avatar" /> */}
                     <Compass margin={true} />
                     <Heart margin={true} />
                     <Avatar />
