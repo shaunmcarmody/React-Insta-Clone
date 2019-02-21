@@ -1,8 +1,65 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
-// import moment from 'moment';
-import './PostContainer.scss';
+import comment from '../../assets/heart.svg';
+import heart from '../../assets/comment.svg';
+import styled, { css } from 'styled-components';
+import Username from '../styles/reusables.js';
+
+const PostArticle = styled.article`
+    background-color: #ffffff;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 60px;
+`;
+
+const PostHeader = styled.header`
+    display: flex;
+    height: 60px;
+    padding: 10px;
+`;
+
+const PostHeaderImg = styled.img`
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+`;
+
+const PostImg = styled.img`
+    display: block;
+    width: 100%;
+`;
+
+const PostIcons = styled.div`
+    ${props => props.container &&
+        css`
+            padding: 5px 0 5px 10px;
+            display: flex;
+            height: 28px;
+        `};
+
+    ${props => props.icon &&
+        css`
+            background-size: 20px 20px;
+            line-height: 24px;
+            margin-right: 20px;
+            width: 20px;
+        `};
+`;
+
+const Heart = styled(PostIcons)`
+    background: url(${heart}) center center no-repeat;
+`;
+
+const Comment = styled(PostIcons)`
+    background: url(${comment}) center center no-repeat;
+`;
+
+const PostSubTitle = styled.h3`
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding-left: 10px;
+    color: #262626;
+`;
 
 class PostContainer extends React.Component {
     constructor(props) {
@@ -43,19 +100,19 @@ class PostContainer extends React.Component {
 
     render() {
         return (
-            <article>
-                <header>
-                    <img src={this.state.thumbnailUrl} alt={this.state.username} />
-                    <h1>{this.state.username}</h1>
-                </header>
-                <img src={this.state.imageUrl} alt={this.state.username} />
-                <div className="icons">
-                    <div className="heart" onClick={this.addLike}/>
-                    <div className="comment" />
-                </div>
-                <h3>{this.state.likes} likes</h3>
+            <PostArticle>
+                <PostHeader>
+                    <PostHeaderImg src={this.state.thumbnailUrl} alt={this.state.username} />
+                    <Username postTitle={true} >{this.state.username}</Username>
+                </PostHeader>
+                <PostImg src={this.state.imageUrl} alt={this.state.username} />
+                <PostIcons container={true} >
+                    <Heart icon={true} />
+                    <Comment icon={true} />
+                </PostIcons>
+                <PostSubTitle>{this.state.likes} likes</PostSubTitle>
                 <CommentSection comments={this.state.comments} timestamp={this.state.timestamp} />
-            </article>   
+            </PostArticle>   
         )
     }
 }
