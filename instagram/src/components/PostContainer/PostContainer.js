@@ -18,7 +18,7 @@ class PostContainer extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
+    componentWillReceiveProps(nextProps) {
         if (nextProps.article.username !== this.props.username) {
             this.setState({
                 username: nextProps.article.username,
@@ -28,17 +28,17 @@ class PostContainer extends React.Component {
                 likes: nextProps.article.likes,
                 timestamp: nextProps.article.timestamp,
                 comments: nextProps.article.comments
-            })
+            });
         }
     } 
 
     addLike = () => {
-        this.setState((state) => {
+        this.setState(state => {
           return {
             like: !state.like,
             likes: state.like ? state.likes - 1 : state.likes + 1,
           }
-        })
+        });
     }
 
     render() {
